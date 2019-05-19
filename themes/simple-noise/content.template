@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="Russia" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+    <title>{@TITLE@}</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <p></p>
+    <table width="700" border="0" align="center" height="419">
+      <tbody>
+        <tr>
+          <td align="center"> <b><span>{@TITLEART@}</span></b><br />
+            <img alt="" src="line.png" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td align="justify" style="width: 700px; height: 419px; text-align: justify; vertical-align: top;">
+            {@CONTENT@}
+          </td>
+        </tr>
+        <tr align="justify">
+          <td> <img alt="" src="line.png" /><br />
+            <div align="right">{@BOTTOMNAME@}<br />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br />
+    </p>
+  </body>
+</html>

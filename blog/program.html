@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="Russia" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>title</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <body>
+  	<br>
+    <table width="700" border="0" align="center" height="420">
+      <tbody>
+        <tr>
+          <td align="center"> 
+<a href="index.html" class="menu">Главная</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="here">Программы</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="link.html" class="menu">Ccылки</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            <img src="line.png" alt="" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td align="justify" style="width: 700px; height: 420px; text-align: justify; vertical-align: top;">
+            <ul>
+import option
+import re
+import os
+import shutil
+
+def preparation():
+    try:
+        os.rmdir(option.name)
+    except FileNotFoundError:
+        pass
+    except OSError:
+        rfile = os.listdir(option.name)
+        for a in rfile: 
+            os.remove(option.name + '/' + a)
+        os.rmdir(option.name)
+
+    os.mkdir(option.name)
+    flist = os.listdir('./themes/' + option.themes + '/')
+    for a in flist:
+        if (a != 'index.template') and (a != 'content.template'):
+            shutil.copy('./themes/' + option.themes + '/' + a,'./' + option.name + '/' + a)
+
+def genPage(name,template,contentInfo = []):
+    page = open('./' + option.name + '/' + name +'.html','w',encoding='utf-8')
+    templatePage = open('./themes/' + option.themes + '/' + template + '.template','r',encoding='utf-8')
+    for line in templatePage:
+        lem = re.search('\{@[A-Z]+@}',line)
+        if lem:
+            if lem.group(0) == '{@TITLE@}':
+                line = line.replace('{@TITLE@}',option.title)
+            elif lem.group(0) == '{@WHILECONTENT@}':
+                    line = ''
+                    for a in option.content:
+                        line += option.linkContent.format(a[1]+'.html',a[0])
+            elif lem.group(0) == '{@BOTTOMNAME@}':
+                line = line.replace('{@BOTTOMNAME@}',option.bottomName)
+            elif lem.group(0) == '{@TITLEART@}':
+                line = line.replace('{@TITLEART@}',contentInfo[0])
+            elif lem.group(0) == '{@CONTENT@}':
+                htmlContent = open('./content/' + contentInfo[1] ,'r',encoding='utf-8')
+                for c in htmlContent:
+                    page.write(c)
+                htmlContent.close()
+                line = ''
+            elif lem.group(0) == '{@MENU@}':
+                line = ''
+                for a in option.menu:
+                    if a[1] == name + '.html':
+                        line += option.linkUP.format(a[0])
+                    else :
+                        line += option.linkMenu.format(a[1],a[0])
+        page.write(line)
+    templatePage.close()
+    page.close()    
+
+
+def main():
+    preparation()
+    genPage('index','index')
+    for a in option.content:
+        genPage(a[1],'content',a)
+    genPage('program','page',['Programs','programm'])
+
+
+if __name__ == '__main__':
+    main()            </ul>
+            <br />
+          </td>
+        </tr>
+        <tr align="justify">
+          <td> <img src="line.png" alt="" /><br />
+            <div align="right">mail.com<br />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br />
+    </p>
+  </body>
+</html>

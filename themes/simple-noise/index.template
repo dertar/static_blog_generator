@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="Russia" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>{@TITLE@}</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <body>
+  	<br>
+    <table width="700" border="0" align="center" height="420">
+      <tbody>
+        <tr>
+          <td align="center"> 
+            {@MENU@}
+            <img src="line.png" alt="" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td align="justify" style="width: 700px; height: 420px; text-align: justify; vertical-align: top;">
+            <ul>
+            	{@WHILECONTENT@}
+            </ul>
+            <br />
+          </td>
+        </tr>
+        <tr align="justify">
+          <td> <img src="line.png" alt="" /><br />
+            <div align="right">{@BOTTOMNAME@}<br />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br />
+    </p>
+  </body>
+</html>

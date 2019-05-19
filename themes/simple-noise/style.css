@@ -1,0 +1,31 @@
+a{ 
+  color:#5a5a5a;
+}
+a.articul{
+  text-decoration: none;
+}
+a.menu{
+  font-size: 18pt;
+  text-decoration: none;
+  color:#5a5a5a;
+}
+
+a:visited{
+  color:#5a5a5a;
+}
+a:hover{
+  color:#1967e8;
+}
+a.menu:hover{
+  color:#1967e8;
+}
+.here{
+  font-size: 18pt;
+  color:#ff7800;
+}
+body{
+  font-family:verdana;
+  color:#5a5a5a;
+  font-size: 14pt;
+  background: url(background.png);
+}
